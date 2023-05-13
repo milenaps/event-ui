@@ -5,13 +5,13 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { EventosComponent } from './eventos/eventos.component';
+import { EventoModule } from './eventos/evento.module';
+import { UsuarioModule } from './usuarios/usuario.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    EventosComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +20,9 @@ import { EventosComponent } from './eventos/eventos.component';
       { path: 'home', component: HomeComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
-    ])
+    ]),
+    EventoModule,
+    UsuarioModule
   ],
   bootstrap: [AppComponent]
 })
