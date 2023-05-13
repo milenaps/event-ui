@@ -1,2 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
+a {
+  text-decoration: none; 
+}
+a:hover {
+  text-decoration: underline;
+}
+
+div.header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.logo {
+  width: 10%;
+  float: left;
+  margin: .5em;
+}
+div.title {
+  width: 78%;
+  float: left;
+  text-align: center;
+  margin-top: 40px;
+}
+
+div.login {
+  width: 10%;
+  float: left;
+}
+div.login-usuario {
+  float: left;
+  margin: 0.5em;
+}
+div.login-usuario p {
+  font-weight: bold;
+  font-size: large;
+}
+
+div.login-acao {
+  float: right;
+  margin: 0.5em;
+}
+
+div.menu {
+  background-color: #7a1c24;
+  margin-bottom: 1em;
+  font-size: large;
+}
+div.menu a {
+  color: #fff;
+}
+
+div.content {
+  margin: 1em;
+}
+div.content h2 {
+  text-align: center;
+}
