@@ -1,0 +1,43 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+<div class="card">
+  <div class="card-header">
+    {{usuario ? 'Editar Usuário' : 'Criar Usuário'}}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" formControlName="nome">
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input id="cpf" type="text" formControlName="cpf">
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input id="email" type="text" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input id="telefone" type="text" formControlName="telefone">
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" formControlName="senha">
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button class="btn btn-outline-secondary"
+            (click)="onBack()">
+      <i class="fa fa-chevron-left"></i> Voltar
+    </button>
+
+    <div style="float:right">
+      <button type="submit" class="btn btn-danger btn-block">Avançar</button>
+    </div>
+  </div>
+</div>
+</form>

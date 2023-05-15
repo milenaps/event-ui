@@ -14,7 +14,11 @@ import { Component } from "@angular/core";
       </div>
       <div class='login'>
         <div class='login-usuario'>
-          <p>{{userName}}</p>
+          <p>
+            <a class='nav-link' routerLinkActive='active' [routerLink]='["/usuarios", userId]'>
+              {{userName}}
+            </a>
+          </p>
         </div>
         <div class='login-acao'>
           <a routerLinkActive='active' routerLink='/home'>
@@ -25,8 +29,8 @@ import { Component } from "@angular/core";
     </div>
     <div class='menu'>
       <ul class='nav nav-pills'>
-        <li><a class='nav-link' routerLinkActive='active' routerLink='/usuarios'>Usuários</a></li>
         <li><a class='nav-link' routerLinkActive='active' routerLink='/eventos'>Eventos</a></li>
+        <li><a class='nav-link' routerLinkActive='active' routerLink='/convidados'>Lista de Convidados</a></li>
       </ul>
     </div>
     <div class='content'>
@@ -36,5 +40,6 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   pageTitle = 'Sistema iChurras';
-  userName = "Fernando A."
+  userName = "Fernando"
+  userId = 1
 }

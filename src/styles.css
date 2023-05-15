@@ -59,3 +59,7 @@ div.content {
 div.content h2 {
   text-align: center;
 }
+
+div.form-group label {
+  width: 5em;
+}

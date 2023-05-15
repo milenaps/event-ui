@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, tap, throwError, map } from "rxjs";
+import { EnvironmentService } from './../shared/environment.service';
 
 import { IEvento } from "./evento";
 
@@ -8,9 +9,11 @@ import { IEvento } from "./evento";
   providedIn: 'root'
 })
 export class EventoService {
-  private url = 'api/eventos.json';
+  private url: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private env: EnvironmentService, private http: HttpClient) {
+    this.url = env.baseUrl + "evento/buscar/todos";
+  }
 
   getEventos(): Observable<IEvento[]> {
     return this.http.get<IEvento[]>(this.url)

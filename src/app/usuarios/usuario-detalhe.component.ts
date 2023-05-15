@@ -30,6 +30,13 @@ export class UsuarioDetalheComponent implements OnInit {
     });
   }
 
+  deletarUsuario(id: string): void {
+    this.service.deletarUsuario(id).subscribe({
+      next: usuario => this.usuario = usuario,
+      error: err => this.errorMessage = err
+    });
+  }
+
   onBack(): void {
     this.router.navigate(['/usuarios']);
   }

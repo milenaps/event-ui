@@ -12,16 +12,29 @@
           <div class='col-md-8'>{{usuario.nome}}</div>
         </div>
         <div class='row'>
-          <div class='col-md-4'>CPF/CNPJ:</div>
-          <div class='col-md-8'>{{usuario.cpfCnpj}}</div>
+          <div class='col-md-4'>CPF:</div>
+          <div class='col-md-8'>{{usuario.cpf}}</div>
         </div>
         <div class='row'>
-          <div class='col-md-4'>Data de Nascimento:</div>
-          <div class='col-md-8'>{{usuario.dataNascimento}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>E-mail:</div>
+          <div class='col-md-4'>Email:</div>
           <div class='col-md-8'>{{usuario.email}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Telefone:</div>
+          <div class='col-md-8'>{{usuario.telefone}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Ações</div>
+          <div class='col-md-8'>
+            <a [routerLink]="['/editar-usuario', usuario.id]">
+              <i class='fa fa-edit'></i> Editar
+            </a>
+            <!--button class='btn btn-outline-secondary'
+                    style='width:80px'
+                    ngclick='deletarUsuario(usuario.id)'>
+              <i class='fa fa-remove'></i> Remover
+            </button-->
+          </div>
         </div>
       </div>
     </div>

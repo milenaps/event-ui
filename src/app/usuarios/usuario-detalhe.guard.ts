@@ -9,9 +9,7 @@ export class UsuarioDetalheGuard implements CanActivate {
 
   constructor(private router: Router) {}
   
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const id = Number(route.paramMap.get('id'));
     if (isNaN(id) || id < 1) {
       alert('Usuário inválido');

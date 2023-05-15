@@ -22,9 +22,9 @@
           <thead>
             <tr>
               <th>Nome</th>
-              <th>CPF/CNPJ</th>
-              <th>Data de Nascimento</th>
-              <th>E-mail</th>
+              <th>CPF</th>
+              <th>email</th>
+              <th>telefone</th>
             </tr>
           </thead>
           <tbody>
@@ -34,9 +34,9 @@
                   {{ usuario.nome }}
                 </a>
               </td>
-              <td>{{ usuario.cpfCnpj }}</td>
-              <td>{{ usuario.dataNascimento }}</td>
+              <td>{{ usuario.cpf }}</td>
               <td>{{ usuario.email }}</td>
+              <td>{{ usuario.telefone }}</td>
             </tr>
           </tbody>
         </table>
@@ -46,5 +46,11 @@
   <div *ngIf='errorMessage'
        class='alert alert-danger'>
     Error: {{ errorMessage }}
+  </div>
+
+  <div class='card-footer'>
+    <a routerLinkActive="active" routerLink="/editar-usuario">
+      <i class='fa fa-plus'></i> Criar Novo
+    </a>
   </div>
 </div>
