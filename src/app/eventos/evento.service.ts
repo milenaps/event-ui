@@ -18,7 +18,7 @@ export class EventoService {
   getEventos(): Observable<IEvento[]> {
     return this.http.get<IEvento[]>(this.url)
       .pipe(
-        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => console.log('Eventos carregados por usuário: ', JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
@@ -27,6 +27,26 @@ export class EventoService {
     return this.getEventos()
       .pipe(
         map((eventos: IEvento[]) => eventos.find(p => p.id === id))
+      );
+  }
+
+  editarEvento(evento: IEvento): Observable<IEvento | undefined> {
+    let action = this.http.post<IEvento>(this.env.baseUrl + "evento/cadastrar", evento);
+    if (evento.id)
+      action = this.http.put<IEvento>(this.env.baseUrl + "evento/atualizar", evento);
+
+    return action
+      .pipe(
+        tap(data => console.log("Usuário " + (evento.id ? "atualizado" : "criado") + " com sucesso", JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
+
+  deletarEvento(id: string): Observable<IEvento | undefined> {
+    return this.http.delete<IEvento>(this.env.baseUrl + "evento/excluir/" + id)
+      .pipe(
+        tap(data => console.log("Evento removido com sucesso", JSON.stringify(data))),
+        catchError(this.handleError)
       );
   }
 

@@ -15,7 +15,7 @@ export class UsuarioService {
   getUsuarios(): Observable<IUsuario[]> {
     return this.http.get<IUsuario[]>(this.env.baseUrl + "usuario/todos")
       .pipe(
-        tap(() => console.log("Carregou usuários")),
+        tap(() => console.log("Usuários carregados")),
         catchError(this.handleError)
       );
   }

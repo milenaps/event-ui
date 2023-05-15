@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EventoModule } from './eventos/evento.module';
 import { UsuarioModule } from './usuarios/usuario.module';
+import { ConvidadoModule } from './convidados/convidado.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UsuarioModule } from './usuarios/usuario.module';
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ]),
     EventoModule,
-    UsuarioModule
+    UsuarioModule,
+    ConvidadoModule
   ],
   bootstrap: [AppComponent]
 })

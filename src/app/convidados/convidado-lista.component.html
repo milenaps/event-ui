@@ -1,5 +1,7 @@
 <div class="content">
-  <h2>Eventos</h2>
+  <div class="card-header">
+    Convidados do Evento {{evento?.nome}}
+  </div>
 
   <div class='card'>
     <div class='card-body'>
@@ -13,32 +15,24 @@
       <div class='row'
            *ngIf='listFilter'>
         <div class='col-md-6'>
-          <h4>Filtered by: {{listFilter}}</h4>
+          <h4>Filtro por: {{listFilter}}</h4>
         </div>
       </div>
       <div class='table-responsive'>
         <table class='table'
-               *ngIf='eventos.length'>
+               *ngIf='convidados.length'>
           <thead>
             <tr>
               <th>Nome</th>
-              <th>Endereço</th>
-              <th>Data</th>
-              <th>Horário</th>
-              <th>Valor Total</th>
+              <th>Telefone</th>
+              <th>Pago</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor='let evento of filteredEventos'>
-              <td>
-                <a [routerLink]="['/eventos', evento.id]">
-                  {{ evento.nome }}
-                </a>
-              </td>
-              <td>{{ evento.endereco }}</td>
-              <td>{{ evento.dataEvento }}</td>
-              <td>{{ evento.horarioEvento }}</td>
-              <td>{{ evento.valorTotalEvento | currency:'BRL':'symbol':'1.2-2' }}</td>
+            <tr *ngFor='let convidado of filteredConvidados'>
+              <td>{{ convidado.nome }}</td>
+              <td>{{ convidado.telefone }}</td>
+              <td>{{ convidado.pago }}</td>
             </tr>
           </tbody>
         </table>
@@ -51,7 +45,7 @@
   </div>
 
   <div class='card-footer'>
-    <a routerLinkActive="active" routerLink="/editar-evento">
+    <a [routerLink]="['/editar-convidado', evento?.id]">
       <i class='fa fa-plus'></i> Criar Novo
     </a>
   </div>
