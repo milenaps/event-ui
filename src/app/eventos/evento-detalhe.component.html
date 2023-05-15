@@ -5,44 +5,66 @@
 
   <div class='card-body'
        *ngIf='evento'>
-    <div class='row'>
-      <div class='col-md-8'>
-        <div class='row'>
-          <div class='col-md-4'>Nome:</div>
-          <div class='col-md-8'>{{evento.nome}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Endereço:</div>
-          <div class='col-md-8'>{{evento.endereco}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Data:</div>
-          <div class='col-md-8'>{{evento.dataEvento}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Horário:</div>
-          <div class='col-md-8'>{{evento.horarioEvento}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Valor Total:</div>
-          <div class='col-md-8'>{{evento.valorTotalEvento | currency:'BRL':'symbol'}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Ações</div>
-          <div class='col-md-8'>
-            <a [routerLink]="['/editar-evento', evento.id]">
-              <i class='fa fa-edit'></i> Editar
-            </a><br/>
-            <a [routerLink]="['/convidados', evento.id]">
-              <i class='fa fa-plus'></i> Convidados
-            </a>
-            <!--button class='btn btn-outline-secondary'
-                    ngclick='deletarEvento(evento.id)'>
-              <i class='fa fa-remove'></i> Remover
-            </button-->
-          </div>
+    <div class='col-md-8'>
+      <div class='row'>
+        <div class='col-md-4'>Nome:</div>
+        <div class='col-md-8'>{{evento.nome}}</div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>Endereço:</div>
+        <div class='col-md-8'>{{evento.endereco}}</div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>Data:</div>
+        <div class='col-md-8'>{{evento.dataEvento}}</div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>Horário:</div>
+        <div class='col-md-8'>{{evento.horarioEvento}}</div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>Valor Total:</div>
+        <div class='col-md-8'>{{evento.valorTotalEvento | currency:'BRL':'symbol'}}</div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>Ações</div>
+        <div class='col-md-8'>
+          <a [routerLink]="['/editar-evento', evento.id]">
+            <i class='fa fa-edit'></i> Editar
+          </a><br/>
+          <a [routerLink]="['/editar-convidado']">
+            <i class='fa fa-plus'></i> Convidados
+          </a>
+          <!--button class='btn btn-outline-secondary'
+                  ngclick='deletarEvento(evento.id)'>
+            <i class='fa fa-remove'></i> Remover
+          </button-->
         </div>
       </div>
+    </div>
+
+    <div class='table-responsive'>
+      <table class='table'
+             *ngIf='evento?.convidados?.length'>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Documento</th>
+            <th>Telefone</th>
+            <th>Valor Devido</th>
+            <th>Pago</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let convidado of evento.convidados'>
+            <td>{{ convidado.nome }}</td>
+            <td>{{ convidado.documento }}</td>
+            <td>{{ convidado.telefone }}</td>
+            <td>{{ convidado.valorDevido}}</td>
+            <td>{{ convidado.pago }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 

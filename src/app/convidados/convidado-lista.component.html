@@ -1,9 +1,13 @@
 <div class="content">
-  <div class="card-header">
-    Convidados do Evento {{evento?.nome}}
-  </div>
-
   <div class='card'>
+    <div class="card-header">
+      Lista de Convidados
+  
+      <a routerLinkActive="active" routerLink="/editar-convidado">
+        <i class='fa fa-plus'></i> Criar Novo
+      </a>
+    </div>
+
     <div class='card-body'>
       <div class='row'>
         <div class='col-md-2'>Filtrar:</div>
@@ -24,14 +28,18 @@
           <thead>
             <tr>
               <th>Nome</th>
+              <th>Documento</th>
               <th>Telefone</th>
+              <th>Valor Devido</th>
               <th>Pago</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor='let convidado of filteredConvidados'>
               <td>{{ convidado.nome }}</td>
+              <td>{{ convidado.documento }}</td>
               <td>{{ convidado.telefone }}</td>
+              <td>{{ convidado.valorDevido }}</td>
               <td>{{ convidado.pago }}</td>
             </tr>
           </tbody>
@@ -42,11 +50,5 @@
   <div *ngIf='errorMessage'
        class='alert alert-danger'>
     Error: {{ errorMessage }}
-  </div>
-
-  <div class='card-footer'>
-    <a [routerLink]="['/editar-convidado', evento?.id]">
-      <i class='fa fa-plus'></i> Criar Novo
-    </a>
   </div>
 </div>

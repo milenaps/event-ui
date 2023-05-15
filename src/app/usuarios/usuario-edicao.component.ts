@@ -25,19 +25,22 @@ export class UsuarioEdicaoComponent implements OnInit {
     if (id) {
       this.getUsuario(id);
     }
-    this.checkoutForm = this.formBuilder.group({
-      id,
-      nome: this.usuario?.nome,
-      cpf: this.usuario?.cpf,
-      email: this.usuario?.email,
-      telefone: this.usuario?.telefone,
-      senha: this.usuario?.senha
-    });
   }
 
   getUsuario(id: number): void {
     this.service.getUsuario(id).subscribe({
-      next: usuario => this.usuario = usuario,
+      next: usuario => {
+        this.usuario = usuario;
+
+        this.checkoutForm = this.formBuilder.group({
+          id,
+          nome: this.usuario?.nome,
+          cpf: this.usuario?.cpf,
+          email: this.usuario?.email,
+          telefone: this.usuario?.telefone,
+          senha: this.usuario?.senha
+        });
+      },
       error: err => this.errorMessage = err
     });
   }

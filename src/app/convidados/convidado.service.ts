@@ -37,7 +37,7 @@ export class ConvidadoService {
 
     return action
       .pipe(
-        tap(data => console.log("Usuário " + (convidado.id ? "atualizado" : "criado") + " com sucesso", JSON.stringify(data))),
+        tap(data => console.log("Convidado " + (convidado.id ? "atualizado" : "criado") + " com sucesso", JSON.stringify(data))),
         catchError(this.handleError)
       );
   }

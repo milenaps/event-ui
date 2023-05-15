@@ -4,6 +4,7 @@ import { Observable, catchError, tap, throwError, map } from "rxjs";
 import { EnvironmentService } from './../shared/environment.service';
 
 import { IEvento } from "./evento";
+import { IConvidado } from "../convidados/convidado";
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,14 @@ export class EventoService {
     return this.http.delete<IEvento>(this.env.baseUrl + "evento/excluir/" + id)
       .pipe(
         tap(data => console.log("Evento removido com sucesso", JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
+
+  getConvidados(): Observable<IConvidado[]> {
+    return this.http.get<IConvidado[]>(this.url)
+      .pipe(
+        tap(data => console.log('Convidados carregados por evento: ', JSON.stringify(data))),
         catchError(this.handleError)
       );
   }

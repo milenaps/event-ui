@@ -60,6 +60,10 @@ div.content h2 {
   text-align: center;
 }
 
+div.form-group, div.card-body div.row {
+  padding-bottom: 1em;
+}
+
 div.form-group label {
-  width: 5em;
+  width: 10em;
 }

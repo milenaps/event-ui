@@ -1,7 +1,13 @@
 <div class="content">
-  <h2>Usuários</h2>
-
   <div class='card'>
+    <div class="card-header">
+      Usuários
+  
+      <a routerLinkActive="active" routerLink="/editar-usuario">
+        <i class='fa fa-plus'></i> Criar Novo
+      </a>
+    </div>
+
     <div class='card-body'>
       <div class='row'>
         <div class='col-md-2'>Filtrar:</div>
@@ -46,11 +52,5 @@
   <div *ngIf='errorMessage'
        class='alert alert-danger'>
     Error: {{ errorMessage }}
-  </div>
-
-  <div class='card-footer'>
-    <a routerLinkActive="active" routerLink="/editar-usuario">
-      <i class='fa fa-plus'></i> Criar Novo
-    </a>
   </div>
 </div>

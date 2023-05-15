@@ -10,26 +10,26 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     ConvidadoListaComponent,
-    ConvidadoDetalheComponent,
-    ConvidadoEdicaoComponent
+    ConvidadoEdicaoComponent,
+    ConvidadoDetalheComponent
   ],
   imports: [
     RouterModule.forChild([
       {
-        path: 'convidados/:eventoId',
+        path: 'convidados',
         component: ConvidadoListaComponent
       },
       {
-        path: 'convidados/:eventoId/:id',
+        path: 'convidados/:id',
         canActivate: [ConvidadoDetalheGuard],
         component: ConvidadoDetalheComponent
       },
       {
-        path: 'editar-convidado/:eventoId',
+        path: 'editar-convidado',
         component: ConvidadoEdicaoComponent
       },
       {
-        path: 'editar-convidado/:eventoId/:id',
+        path: 'editar-convidado/:id',
         component: ConvidadoEdicaoComponent
       }
     ]),

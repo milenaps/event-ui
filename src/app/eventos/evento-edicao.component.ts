@@ -10,14 +10,14 @@ import { EventoService } from './evento.service';
 export class EventoEdicaoComponent implements OnInit {
   errorMessage = '';
   evento: IEvento | undefined;
-  checkoutForm: FormGroup
+  checkoutForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private formBuilder: FormBuilder,
               private service: EventoService) {
     this.checkoutForm = this.formBuilder.group({
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -25,19 +25,22 @@ export class EventoEdicaoComponent implements OnInit {
     if (id) {
       this.getEvento(id);
     }
-    this.checkoutForm = this.formBuilder.group({
-      id,
-      nome: this.evento?.nome,
-      endereco: this.evento?.endereco,
-      data: this.evento?.dataEvento,
-      horario: this.evento?.horarioEvento,
-      valorTotal: this.evento?.valorTotalEvento
-    });
   }
 
   getEvento(id: number): void {
     this.service.getEvento(id).subscribe({
-      next: evento => this.evento = evento,
+      next: evento => {
+        this.evento = evento;
+
+        this.checkoutForm = this.formBuilder.group({
+          id,
+          nome: this.evento?.nome,
+          endereco: this.evento?.endereco,
+          data: this.evento?.dataEvento,
+          horario: this.evento?.horarioEvento,
+          valorTotal: this.evento?.valorTotalEvento
+        });
+      },
       error: err => this.errorMessage = err
     });
   }
@@ -50,15 +53,17 @@ export class EventoEdicaoComponent implements OnInit {
       "dataEvento": this.checkoutForm.get("data")?.value,
       "horarioEvento": this.checkoutForm.get("horario")?.value,
       "valorTotalEvento": this.checkoutForm.get("valorTotal")?.value,
+      "convidados": this.checkoutForm.get("convidados")?.value,
       "usuarioId": 1
     }
     this.service.editarEvento(data).subscribe({
       next: evento => this.evento = evento,
       error: err => this.errorMessage = err
     });
+    this.router.navigate(['/eventos']);
   }
 
   onBack(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/eventos']);
   }
 }

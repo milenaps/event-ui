@@ -29,7 +29,9 @@ import { Component } from "@angular/core";
     </div>
     <div class='menu'>
       <ul class='nav nav-pills'>
+        <li><a class='nav-link' routerLinkActive='active' routerLink='/usuarios'>Usuários</a></li>
         <li><a class='nav-link' routerLinkActive='active' routerLink='/eventos'>Eventos</a></li>
+        <li><a class='nav-link' routerLinkActive='active' routerLink='/convidados'>Lista de Convidados</a></li>
       </ul>
     </div>
     <div class='content'>
