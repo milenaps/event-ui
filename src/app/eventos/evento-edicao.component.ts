@@ -17,6 +17,11 @@ export class EventoEdicaoComponent implements OnInit {
               private formBuilder: FormBuilder,
               private service: EventoService) {
     this.checkoutForm = this.formBuilder.group({
+      nome: '',
+      endereco: '',
+      data: '',
+      horario: '',
+      valorTotal: ''
     });
   }
 
@@ -38,7 +43,8 @@ export class EventoEdicaoComponent implements OnInit {
           endereco: this.evento?.endereco,
           data: this.evento?.dataEvento,
           horario: this.evento?.horarioEvento,
-          valorTotal: this.evento?.valorTotalEvento
+          valorTotal: this.evento?.valorTotalEvento,
+          usuarioId: this.evento?.usuarioId
         });
       },
       error: err => this.errorMessage = err

@@ -21,13 +21,24 @@
         </div>
         
         <div class='row'>
-          <div class='col-md-4'>Valor Deevido:</div>
-          <div class='col-md-8'>{{convidado.valorDevido}}</div>
+          <div class='col-md-4'>Valor Devido:</div>
+          <div class='col-md-8'>{{convidado.valorDevido | currency:'BRL':'symbol'}}</div>
         </div>
         <div class='row'>
           <div class='col-md-4'>Pago:</div>
           <div class='col-md-8'>{{convidado.pago ? 'Sim' : 'Não'}}</div>
         </div>
+        <div class='row'>
+          <div class='col-md-4'>Ações</div>
+          <div class='col-md-8'>
+            <a [routerLink]="['/editar-convidado', convidado.id]">
+              <i class='fa fa-edit'></i> Editar
+            </a>
+            <!--button class='btn btn-outline-secondary'
+                    ngclick='deletarConvidado(convidado.id)'>
+              <i class='fa fa-remove'></i> Remover
+            </button-->
+          </div>
       </div>
     </div>
   </div>

@@ -19,7 +19,7 @@ export class EventoService {
   getEventos(): Observable<IEvento[]> {
     return this.http.get<IEvento[]>(this.url)
       .pipe(
-        tap(data => console.log('Eventos carregados por usuário: ', JSON.stringify(data))),
+        tap(data => console.log('Eventos por organizador: ', JSON.stringify(data))),
         catchError(this.handleError)
       );
   }

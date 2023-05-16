@@ -10,14 +10,19 @@ import { ConvidadoService } from './convidado.service';
 export class ConvidadoEdicaoComponent implements OnInit {
   errorMessage = '';
   convidado: IConvidado | undefined;
-  checkoutForm: FormGroup
+  checkoutForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private formBuilder: FormBuilder,
               private service: ConvidadoService) {
     this.checkoutForm = this.formBuilder.group({
-    })
+      nome: '',
+      documento: '',
+      telefone: '',
+      valorDevido: '',
+      pago: false
+    });
   }
 
   ngOnInit(): void {
@@ -38,7 +43,8 @@ export class ConvidadoEdicaoComponent implements OnInit {
           documento: this.convidado?.documento,
           telefone: this.convidado?.telefone,
           valorDevido: this.convidado?.valorDevido,
-          pago: this.convidado?.pago
+          pago: this.convidado?.pago,
+          eventoId: this.convidado?.eventoId
         });
       },
       error: err => this.errorMessage = err

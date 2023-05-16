@@ -18,7 +18,7 @@ export class ConvidadoService {
   getConvidados(): Observable<IConvidado[]> {
     return this.http.get<IConvidado[]>(this.url)
       .pipe(
-        tap(data => console.log('Convidados carregados por evento: ', JSON.stringify(data))),
+        tap(data => console.log('Convidados por evento: ', JSON.stringify(data))),
         catchError(this.handleError)
       );
   }

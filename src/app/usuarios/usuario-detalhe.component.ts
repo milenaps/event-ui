@@ -38,6 +38,6 @@ export class UsuarioDetalheComponent implements OnInit {
   }
 
   onBack(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/usuarios']);
   }
 }

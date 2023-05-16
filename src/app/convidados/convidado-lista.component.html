@@ -36,11 +36,15 @@
           </thead>
           <tbody>
             <tr *ngFor='let convidado of filteredConvidados'>
-              <td>{{ convidado.nome }}</td>
+              <td>
+                <a [routerLink]="['/convidados', convidado.id]">
+                  {{ convidado.nome }}
+                </a>
+              </td>
               <td>{{ convidado.documento }}</td>
               <td>{{ convidado.telefone }}</td>
               <td>{{ convidado.valorDevido }}</td>
-              <td>{{ convidado.pago }}</td>
+              <td>{{ convidado.pago ? 'Sim' : 'Não' }}</td>
             </tr>
           </tbody>
         </table>
